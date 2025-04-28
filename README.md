@@ -73,6 +73,44 @@ Now, Spring knows explicitly which `Pet` implementation to inject (`dog`).
 
 ---
 
+## 🛠️ Dynamic Pet Selection Service
+
+To dynamically select and inject a pet based on runtime input, checkout the branch `added-pet-service-when-determining-pets`:
+
+```shell
+git checkout added-pet-service-when-determining-pets
+```
+
+### 🚀 How to Run with Arguments
+
+Run the Spring Boot Application with arguments using Maven:
+
+```shell
+./mvnw spring-boot:run -Dspring-boot.run.arguments=dog
+```
+
+Expected output:
+
+```
+Person is feeding the pet:
+Feeding the dog 🐶
+```
+
+Change the argument to "cat":
+
+```shell
+./mvnw spring-boot:run -Dspring-boot.run.arguments=cat
+```
+
+Expected output:
+
+```
+Person is feeding the pet:
+Feeding the cat 🐱
+```
+
+---
+
 ## ✅ Verifying Your Setup
 
 After applying `@Qualifier`, run the application again:
