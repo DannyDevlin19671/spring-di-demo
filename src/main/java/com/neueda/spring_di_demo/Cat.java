@@ -19,5 +19,5 @@ public class Cat implements Pet{
     public void feed() {
         logger.info("Feeding the cat 🐱");
     }
-
 }
+
