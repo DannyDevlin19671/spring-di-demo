@@ -1,5 +1,6 @@
 package com.neueda.spring_di_demo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +15,7 @@ public class Person {
 
     // Constructor injection is used to inject
     // the Pet dependency into the Person class
-    public Person(Pet pet) {
+    public Person(@Qualifier("dog") Pet pet) {
         this.pet = pet;
     }
 
