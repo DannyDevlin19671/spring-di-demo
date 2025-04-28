@@ -1,6 +1,7 @@
 package com.neueda.spring_di_demo;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,16 +12,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
-    private final Pet pet;
+    private static final Logger logger = LoggerFactory.getLogger(Person.class);
+    private Pet pet;
 
-    // Constructor injection is used to inject
-    // the Pet dependency into the Person class
-    public Person(@Qualifier("dog") Pet pet) {
+    // Setter Injection allows dynamic assignment at runtime
+    public void setPet(Pet pet) {
         this.pet = pet;
     }
 
-    // This method uses the injected Pet instance
     public void feedPet() {
-        pet.feed();
+        if (pet == null) {
+            logger.warn("No pet assigned yet!");
+        } else {
+            logger.info("Person is feeding the pet:");
+            pet.feed();
+        }
     }
 }
